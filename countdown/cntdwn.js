@@ -3,7 +3,7 @@
  * @author vegaasen
  */
 const END_TIME = new Date(2014, 9, 31);
-const HAPPENING = '@vegaasen leaves Telenor';
+const HAPPENING = '@tomran leaves Telenor';
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
 const HOUR = MINUTE * 60;
