@@ -2,7 +2,7 @@
  * Simple configuration of the angular stuff which is being used by the countdown itself
  * @author vegaasen
  */
-const END_TIME = new Date(2014, 9, 31);
+const END_TIME = new Date(2014, 8, 30);
 const HAPPENING = '@tomran leaves Telenor';
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
@@ -40,7 +40,7 @@ angular
     });
 
 function remainingDays(date1, date2) {
-    var timeLeft = Math.round(Math.abs(date1.getTime() - date2.getTime()));
+    var timeLeft = date1.getTime() - date2.getTime();
     return {
         timeLeft: timeLeft,
         days: conditionallyPrependZero(~~(timeLeft / DAY)),
@@ -51,5 +51,5 @@ function remainingDays(date1, date2) {
 }
 
 function conditionallyPrependZero(n) {
-    return (n > 0 && n > 9) ? n : "0" + n;
+    return n;
 }
