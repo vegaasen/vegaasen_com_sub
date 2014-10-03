@@ -12,12 +12,12 @@ const DAY = HOUR * 24;
 angular
     .module('appCountDown', [])
     .controller("countdownController", function ($scope, $timeout) {
-        $scope.remaning = remainingDays(END_TIME, new Date());
+        $scope.remaining = remainingDays(END_TIME, new Date());
         $scope.happening = HAPPENING;
         var poll = function () {
             $timeout(
                 function () {
-                    $scope.remaning = remainingDays(END_TIME, new Date());
+                    $scope.remaining = remainingDays(END_TIME, new Date());
                     poll();
                 },
                 200);
@@ -39,17 +39,24 @@ angular
         };
     });
 
-function remainingDays(date1, date2) {
-    var timeLeft = date1.getTime() - date2.getTime();
+function remainingDays(e, s) {
+    var timeLeft = e.getTime() - s.getTime();
     return {
-        timeLeft: timeLeft,
+        timeLeft: (timeLeft > 0),
         days: conditionallyPrependZero(~~(timeLeft / DAY)),
         hours: conditionallyPrependZero(~~((timeLeft % DAY) / HOUR)),
         minutes: conditionallyPrependZero(~~((timeLeft % HOUR) / MINUTE)),
-        seconds: conditionallyPrependZero(~~((timeLeft % MINUTE) / SECOND))
+        seconds: conditionallyPrependZero(~~((timeLeft % MINUTE) / SECOND)),
+        endDate: {
+            year: e.getFullYear(),
+            month: conditionallyPrependZero(e.getMonth() + 1),
+            day: conditionallyPrependZero(e.getDate()),
+            hour: conditionallyPrependZero(e.getHours()),
+            minute: conditionallyPrependZero(e.getMinutes())
+        }
     };
 }
 
 function conditionallyPrependZero(n) {
-    return n;
+    return (n > 0 && n > 9) ? n : "0" + n;
 }
