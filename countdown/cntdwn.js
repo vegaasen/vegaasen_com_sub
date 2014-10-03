@@ -2,7 +2,7 @@
  * Simple configuration of the angular stuff which is being used by the countdown itself
  * @author vegaasen
  */
-const END_TIME = new Date(2014, 8, 30);
+const END_TIME = new Date(2014, 8, 30, 15, 0);
 const HAPPENING = '@ingarla leaves Telenor';
 const SECOND = 1000;
 const MINUTE = SECOND * 60;
