@@ -17,7 +17,7 @@ angular
         var poll = function () {
             $timeout(
                 function () {
-                    $scope.remaning = remainingDays(END_TIME, new Date());
+                    $scope.remaining = remainingDays(END_TIME, new Date());
                     poll();
                 },
                 200);
@@ -49,7 +49,7 @@ function remainingDays(e, s) {
         seconds: conditionallyPrependZero(~~((timeLeft % MINUTE) / SECOND)),
         endDate: {
             year: e.getFullYear(),
-            month: conditionallyPrependZero(e.getMonth()+1),
+            month: conditionallyPrependZero(e.getMonth() + 1),
             day: conditionallyPrependZero(e.getDate()),
             hour: conditionallyPrependZero(e.getHours()),
             minute: conditionallyPrependZero(e.getMinutes())
