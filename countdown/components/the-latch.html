@@ -1,6 +1,16 @@
-<div class="numbers">
-    <div class="num"><h1>{{remaning.days}}</h1><div class="caption">days</div></div>
-    <div class="num"><h1>{{remaning.hours}}</h1><div class="caption">hours</div></div>
-    <div class="num"><h1>{{remaning.minutes}}</h1><div class="caption">minutes</div></div>
-    <div class="num"><h1>{{remaning.seconds}}</h1><div class="caption">seconds</div></div>
+<div ng-if="remaining.timeLeft">
+    <div class="numbers">
+        <div class="num"><h1>{{remaining.days}}</h1><div class="caption">days</div></div>
+        <div class="num"><h1>{{remaining.hours}}</h1><div class="caption">hours</div></div>
+        <div class="num"><h1>{{remaining.minutes}}</h1><div class="caption">minutes</div></div>
+        <div class="num"><h1>{{remaining.seconds}}</h1><div class="caption">seconds</div></div>
+    </div>
+</div>
+<div ng-if="!remaining.timeLeft">
+    <div class="time-up">
+        <h1>
+            {{remaining.endDate.day}}.{{remaining.endDate.month}}.{{remaining.endDate.year}}<br/>{{remaining.endDate.hour}}:{{remaining.endDate.minute}}
+        </h1>
+        <div class="caption">countdown is no longer active</div>
+    </div>
 </div>
